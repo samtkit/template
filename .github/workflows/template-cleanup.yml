@@ -1,0 +1,55 @@
+name: Template Cleanup
+on:
+  push:
+    branches: [main]
+
+jobs:
+
+  template-cleanup:
+    name: Template Cleanup
+    runs-on: ubuntu-latest
+    if: github.event.repository.name != 'template'
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Cleanup
+        run: |
+          # Replace placeholders in the template-cleanup files
+          NAME="${GITHUB_REPOSITORY##*/}"
+
+          sed -i "s/%ACTOR%/$GITHUB_ACTOR/g" .github/template-cleanup/*
+          sed -i "s/%NAME%/$NAME/g" .github/template-cleanup/*
+
+          # Move content
+          cp -R .github/template-cleanup/* .
+
+          # Cleanup
+          rm -rf \
+            .github \
+            LICENSE
+
+          # Remove leftover empty directories
+          find . -type d -empty -delete
+
+      - name: Update wrapper to latest
+        run: ./samtw wrapper
+
+      - name: Commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Template cleanup"
+
+      # Push changes
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,9 @@
+package tools.samt.greeter
+
+record Greeting {
+    message: String
+}
+
+service Greeter {
+    greet(name: String (1..50)): Greeting
+}

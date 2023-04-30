@@ -1,0 +1,7 @@
+package tools.samt.greeter
+
+provide GreeterEndpoint {
+    implements Greeter
+
+    transport HTTP
+}
