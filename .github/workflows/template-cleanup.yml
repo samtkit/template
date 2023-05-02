@@ -37,8 +37,8 @@ jobs:
           # Remove leftover empty directories
           find . -type d -empty -delete
 
-      - name: Update wrapper to latest
-        run: ./samtw wrapper
+      - name: Update wrapper and scripts to latest
+        run: ./samtw wrapper --init
 
       - name: Commit
         run: |
