@@ -4,6 +4,8 @@ record Greeting {
     message: String
 }
 
+typealias Name = String(1..50)
+
 service Greeter {
-    greet(name: String (1..50)): Greeting
+    greet(name: Name): Greeting
 }
