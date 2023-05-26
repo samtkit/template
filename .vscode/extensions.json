@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "samt.samt"
+        "samt.samt",
+        "redhat.vscode-yaml"
     ]
 }
