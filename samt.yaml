@@ -1,0 +1,7 @@
+source: ./src
+
+generators:
+  - name: kotlin-types
+    output: ./out
+  - name: kotlin-ktor
+    output: ./out
