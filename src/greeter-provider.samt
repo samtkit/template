@@ -3,5 +3,12 @@ package tools.samt.greeter
 provide GreeterEndpoint {
     implements Greeter
 
-    transport HTTP
+    transport HTTP {
+        operations: {
+            Greeter: {
+                greet: "POST /greet/{name}",
+                greetMany: "POST /greet/all {names in query}"
+            }
+        }
+    }
 }
