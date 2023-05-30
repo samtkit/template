@@ -1,7 +1,9 @@
 source: ./src
 
 generators:
-  - name: kotlin-types
-    output: ./out
-  - name: kotlin-ktor
-    output: ./out
+  # Configure your desired generators here
+  - name: kotlin-ktor-provider
+    output: ./out/ktor-server
+  - name: kotlin-ktor-consumer
+    output: ./out/ktor-client
+
