@@ -1,6 +1,7 @@
 # SAMT Template
 
 ## Workflow
+
 **SAMT Template** is a particular type of GitHub repository that lets you speed up the setup phase and start modeling your APIs immediately.
 
 The general idea is straightforward – to create a new project based on this template, you need to log in to your GitHub account and use the **Use this template** green button.
@@ -19,6 +20,8 @@ After you create a new project based on the current template repository using th
 ├── README.md                       README file
 ├── .samt
 │   └── samt-wrapper.properties     SAMT Wrapper configuration
+├── .samtrc.yaml                    SAMT style configuration
+├── samt.yaml                       SAMT project configuration
 ├── samtw                           *nix SAMT Wrapper script
 ├── samtw.bat                       Windows SAMT Wrapper script
 └── src
